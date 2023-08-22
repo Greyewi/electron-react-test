@@ -1,0 +1,18 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 833px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.type {
+  padding: 20px;
+  margin-top: 20px;
+  text-shadow: 0 0 1px #000;
+  font-size: 20px;
+  font-weight: bold;
+}

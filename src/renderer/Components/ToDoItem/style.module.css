@@ -1,0 +1,58 @@
+.item {
+  display: flex;
+  border: 2px solid #222;
+  border-radius: 4px;
+  padding: 15px;
+  flex-direction: column;
+  gap: 15px;
+  transition-duration: 0.2s;
+}
+
+.item__header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item__header > div {
+  padding: 10px;
+}
+
+.active {
+  max-height: 100px;
+  transition-duration: 0.2s;
+}
+
+.hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition-duration: 0.5s;
+}
+
+.title {
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  text-transform: capitalize;
+}
+
+.in_progress {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.done {
+  background-color: rgba(122, 208, 88, 0.5);
+}
+
+.description {
+  background-color: rgba(253, 210, 0, 0.2);
+  display: flex;
+  padding: 15px;
+  font-size: 17px;
+  border-radius: 5px;
+}
