@@ -70,6 +70,7 @@ nav {
   top: 5px;
   width: 833px;
   z-index: 4;
+  align-items: center;
 }
 
 nav > a {

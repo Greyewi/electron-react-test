@@ -1,21 +1,16 @@
-import { useEffect } from 'react';
 import { MemoryRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import History from './pages/History';
-import ToDo from './pages/ToDo';
+import History from './Pages/History';
+import ToDo from './Pages/ToDo';
 import { TodoProvider } from './context';
 import './style.css';
-
-const { electron } = window;
+import { useIPC } from './Hooks/useIPC';
 
 export default function App() {
-  useEffect(() => {
-    electron.ipcRenderer.sendMessage('add-numbers', { a: 3, b: 6 });
-
-    electron.ipcRenderer.on('add-numbers-response', (response) => {
-      // eslint-disable-next-line no-console
-      console.log(response);
-    });
-  }, []);
+  const result = useIPC<{ a: number; b: number }, number>(
+    'add-numbers',
+    'add-numbers-response',
+    { a: 3, b: 6 }
+  );
 
   return (
     <TodoProvider>
@@ -23,6 +18,7 @@ export default function App() {
         <nav>
           <Link to="/">ToDo</Link>
           <Link to="/history">History</Link>
+          <b>The data from node: {result}</b>
         </nav>
         <Routes>
           <Route path="/" element={<ToDo />} />
